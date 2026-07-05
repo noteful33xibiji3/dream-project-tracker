@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Project Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 引入 Phosphor Icons 作為介面圖示 -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- 側邊欄 -->
+        <aside class="sidebar" id="sidebar">
+            <div class="brand">
+                <i class="ph ph-target"></i>
+                <h2>DreamTracker</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" data-view="dashboard"><i class="ph ph-squares-four"></i> Dashboard</a>
+                <a href="#" class="nav-item" data-view="projects"><i class="ph ph-folder-open"></i> Projects</a>
+                <a href="#" class="nav-item" data-view="tasks"><i class="ph ph-check-square"></i> Tasks</a>
+                <a href="#" class="nav-item" data-view="timeline"><i class="ph ph-chart-bar"></i> Timeline</a>
+                <a href="#" class="nav-item" data-view="calendar"><i class="ph ph-calendar-blank"></i> Calendar</a>
+                <a href="#" class="nav-item" data-view="journal"><i class="ph ph-book-open"></i> Journal</a>
+                <a href="#" class="nav-item" data-view="review"><i class="ph ph-arrow-counter-clockwise"></i> Weekly Review</a>
+                <a href="#" class="nav-item" data-view="statistics"><i class="ph ph-chart-line-up"></i> Statistics</a>
+            </nav>
+        </aside>
+
+        <!-- 主內容區 -->
+        <main class="main-content">
+            <!-- 頂部導覽 -->
+            <header class="topbar">
+                <div class="mobile-menu-toggle" id="mobile-toggle">
+                    <i class="ph ph-list"></i>
+                </div>
+                <div class="search-bar">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <input type="text" id="global-search" placeholder="Search tasks, projects, tags...">
+                </div>
+                <div class="topbar-actions">
+                    <button class="btn-icon" id="theme-toggle" title="Toggle Dark Mode">
+                        <i class="ph ph-moon"></i>
+                    </button>
+                    <button class="btn-primary" id="quick-add-btn">
+                        <i class="ph ph-plus"></i> New Task
+                    </button>
+                </div>
+            </header>
+
+            <!-- 視圖容器 -->
+            <div class="view-container" id="view-container">
+                <!-- 動態注入的視圖內容將呈現在這裡 -->
+            </div>
+        </main>
+    </div>
+
+    <!-- 快速新增 Modal -->
+    <div class="modal-overlay" id="task-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create New Task</h3>
+                <button class="btn-icon close-modal"><i class="ph ph-x"></i></button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="task-title" class="input-field full-width" placeholder="Task Name">
+                <textarea id="task-desc" class="input-field full-width" placeholder="Description"></textarea>
+                <div class="form-row">
+                    <select id="task-project" class="input-field"><option value="">Select Project</option></select>
+                    <input type="date" id="task-due" class="input-field">
+                </div>
+                <button class="btn-primary full-width" id="save-task-btn">Save Task</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
